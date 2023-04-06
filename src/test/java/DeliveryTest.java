@@ -34,4 +34,3 @@ public class DeliveryTest {
         $(".notification__content").shouldHave(Condition.ownText(date));
     }
 }
-}
