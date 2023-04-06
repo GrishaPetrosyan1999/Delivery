@@ -8,7 +8,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 public class DeliveryTest {
     public String getDate(int days, String pattern){
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern(pattern));
@@ -18,7 +17,7 @@ public class DeliveryTest {
         Configuration.headless = true;
         Configuration.holdBrowserOpen = true;
 //        LocalDate date = LocalDate.now();
-        String date = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        String date = getDate(3, "dd.MM.yyyy");
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Южно-Сахалинск");
         $("[data-test-id='date'] input").doubleClick();
