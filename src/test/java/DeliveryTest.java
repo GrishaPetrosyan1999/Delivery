@@ -4,14 +4,17 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selenide.*;
-
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+
 public class DeliveryTest {
+    public String getDate(int days, String pattern){
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern(pattern));
+    }
     @Test
-    void shouldSendForm() {
+        void shouldSendForm() {
         Configuration.headless = true;
         Configuration.holdBrowserOpen = true;
 //        LocalDate date = LocalDate.now();
@@ -31,4 +34,4 @@ public class DeliveryTest {
         $(".notification__content").shouldHave(Condition.ownText(date));
     }
 }
-
+}
